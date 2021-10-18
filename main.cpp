@@ -183,6 +183,10 @@ int main() {
   linked_list_tree.inOrden(); 
   cout << endl;
   linked_list_tree.tree_print();
+
+  cout << "\n" << endl;
+  cout << "full?: " << linked_list_tree.is_full() << endl;
+  cout << "leafs: " << linked_list_tree.leaf_count() << endl;
 }
 
 
@@ -204,5 +208,9 @@ https://www.systutorials.com/how-to-process-a-file-line-by-line-in-c/
 https://www.delftstack.com/es/howto/cpp/return-string-from-function-cpp/
 https://www.w3schools.com/cpp/cpp_strings_concat.asp
 https://stackoverflow.com/questions/13445688/how-to-generate-a-random-number-in-c
+
+
+https://www.geeksforgeeks.org/check-whether-binary-tree-full-binary-tree-not/
+
 
 */

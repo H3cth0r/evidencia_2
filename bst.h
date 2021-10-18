@@ -148,6 +148,20 @@ class BST{
       tree_print(node->left, spaces);
     }
 
+    // recursive if_full
+    bool is_full(Node<T> * & node){
+      if(node == NULL) return true;
+      if(node->right == NULL && node->left == NULL) return true;
+      if(node->right != NULL && node->left) return (is_full(node->right) && is_full(node->left));
+      return false;
+    }
+    // recurise leaf_count()
+    int leaf_count(Node<T> * & node){
+      if(node == NULL) return 0;
+      if(node->left == NULL && node->right == NULL) return 1;
+      return leaf_count(node->left) + leaf_count(node->right);
+    }
+
   public:
     BST(){
       root = NULL;                              //O(1)
@@ -262,6 +276,13 @@ class BST{
 
     void tree_print(){
       tree_print(root);
+    }
+    bool is_full(){
+      if(root == NULL) return true;
+      return is_full(root);
+    }
+    int leaf_count(){
+      return leaf_count(root);
     }
 
 };
