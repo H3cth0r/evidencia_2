@@ -546,11 +546,11 @@ otros métodos*/
     }
 
     bool operator < (const LinkedList<T> & lista){
-      return lista.the_size < this->the_size;
+      return lista.the_size > this->the_size;
     }
 
     bool operator > (const LinkedList<T> & lista){
-      return lista.the_size > this->the_size;
+      return lista.the_size < this->the_size;
     }
 };
 /*

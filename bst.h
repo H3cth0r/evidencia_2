@@ -25,9 +25,9 @@ class BST{
       if(node== NULL){                          //O(1)
         node = new Node(data);                  //O(1)
       }else{
-        if(data < node->data){
+        if(data < node->data){ // <
           insert(node->left, data);
-        }else if(data > node->data){
+        }else if(data > node->data){ // >
           insert(node->right, data);
         }
         
@@ -133,6 +133,19 @@ class BST{
         flatten(node->right, lista_ligada);                            //O(n)
       }
       return lista_ligada;
+    }
+    // recurise tree_print
+    void tree_print(Node<T> * & node, int spaces=0){
+      if(node == NULL) return;
+      spaces += 10;
+      
+      tree_print(node->right, spaces);
+
+      cout << endl;
+      for(int i = 10; i < spaces; i++) cout << " ";
+      cout << node->data << endl;
+
+      tree_print(node->left, spaces);
     }
 
   public:
@@ -246,4 +259,9 @@ class BST{
       LinkedList<T>  lista_ligada = LinkedList<T>();
       return flatten(root, lista_ligada); // a linked list 
     }
+
+    void tree_print(){
+      tree_print(root);
+    }
+
 };

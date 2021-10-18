@@ -181,6 +181,8 @@ int main() {
 
   read_file();
   linked_list_tree.inOrden(); 
+  cout << endl;
+  linked_list_tree.tree_print();
 }
 
 
