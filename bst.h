@@ -168,8 +168,17 @@ class BST{
       if(node->left == NULL || node->right == NULL) return false;
       return is_perfect(node->left, height, level + 1) && is_perfect(node->right, height, level + 1);
     }
-    // recurise is_degenerative()
-    
+    // recurise is_degenerate()
+    bool is_degenerate(Node<T> * & node){
+      if(node->left != NULL){
+        if(node->right != NULL) return false;
+        else return is_degenerate(node->left);
+      }
+      else{
+        if(node->right != NULL) return is_degenerate(node->right);
+        else return true;
+      }
+    }
 
   public:
     BST(){
@@ -319,9 +328,8 @@ class BST{
     In casi it is a degenerative tree, it would be almost the same as
     linked list. 
     */
-    bool is_degenerative(){
-
-      return is_degenerative();
+    bool is_degenerate(){
+      return is_degenerate(root);
     }
 
 };

@@ -188,6 +188,7 @@ int main() {
   cout << "full?: " << linked_list_tree.is_full() << endl;
   cout << "leafs: " << linked_list_tree.leaf_count() << endl;
   cout << "perfect?: " << linked_list_tree.is_perfect() << endl;
+  cout << "degenerate?=: " << linked_list_tree.is_degenerate() << endl;
 }
 
 
@@ -214,6 +215,7 @@ https://stackoverflow.com/questions/13445688/how-to-generate-a-random-number-in-
 https://www.geeksforgeeks.org/check-whether-binary-tree-full-binary-tree-not/
 
 https://www.programiz.com/dsa/perfect-binary-tree
+https://stackoverflow.com/questions/33515678/checking-to-see-if-a-binary-search-tree-is-degenerate
 
 
 */
