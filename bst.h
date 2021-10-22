@@ -161,6 +161,15 @@ class BST{
       if(node->left == NULL && node->right == NULL) return 1;
       return leaf_count(node->left) + leaf_count(node->right);
     }
+    // recurise is_perfect()
+    bool is_perfect(Node<T> * & node, int height, int level = 0){
+      if(node==NULL) return true;
+      if(node->left == NULL && node->right == NULL) return height == level + 1;
+      if(node->left == NULL || node->right == NULL) return false;
+      return is_perfect(node->left, height, level + 1) && is_perfect(node->right, height, level + 1);
+    }
+    // recurise is_degenerative()
+    
 
   public:
     BST(){
@@ -273,16 +282,46 @@ class BST{
       LinkedList<T>  lista_ligada = LinkedList<T>();
       return flatten(root, lista_ligada); // a linked list 
     }
-
+    /*
+    Method for printing the tree horizontally, presentis the leaves
+    and nodes. 
+    */
     void tree_print(){
       tree_print(root);
     }
+    /*
+    Method for checking whether the bst is full, meaning that each
+    node has to leaves or non leaves.
+    */
     bool is_full(){
       if(root == NULL) return true;
       return is_full(root);
     }
+    /*
+    Method for couting how many leaves the bst Has. Meaning to check
+    how many nodes in the bst have no other leave.
+    */
     int leaf_count(){
       return leaf_count(root);
+    }
+    /*
+    Method for checking whether the bst is perfect, meaning to check
+    wether the bst is_full() and the depth of each leave is at the
+    same level. Here we are considering the height the same as the
+    depth.
+    */
+    bool is_perfect(){
+      int h = height();
+      return is_perfect(root, h);
+    }
+    /*
+    Method for checking whether each father node has just one kid node.
+    In casi it is a degenerative tree, it would be almost the same as
+    linked list. 
+    */
+    bool is_degenerative(){
+
+      return is_degenerative();
     }
 
 };
