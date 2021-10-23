@@ -174,6 +174,83 @@ TO DO
 
 // function to add each linkedlist to BST
 
+void menu(){
+  cout << "[*] MENU. enter an option" << endl;
+  cout << "[1] Print binary tree structure." << endl;
+  cout << "[2] Print tree by level." << endl;
+  cout << "[3] Print tree by pre-order." << endl;
+  cout << "[4] Print tree by post_order." << endl;
+  cout << "[5] Print tree in-order." << endl;
+  cout << "[6] Look for an IP on network." << endl;
+  cout << "[7] Print percentage of infected servers." << endl;
+  cout << "[8] Print general chacteristics of BST." << endl;
+  cout << "[9] exit" << endl;
+  cout << ">> ";
+  int option; cin >> option; cout << endl;
+
+  switch(option){
+    case 1:
+      cout << "[*] PRINTING TREE STRUCTURE" << endl; 
+      linked_list_tree.tree_print();
+      cout  << endl;
+      break;
+    case 2:
+      cout << "[*] PRINTING TREE BY LEVELS" << endl; 
+      linked_list_tree.levels();
+      cout << endl;
+      break;
+    case 3:
+      cout << "[*] PRINTING TREE IN PRE-ORDER" << endl; 
+      linked_list_tree.preOrden();
+      cout << endl;
+      break;
+    case 4:
+      cout << "[*] PRINTING TREE IN POST-ORDER" << endl; 
+      linked_list_tree.postOrden();
+      cout << endl;
+      break;
+    case 5:
+      cout << "[*] PRINTING TREE IN-ORDER" << endl; 
+      linked_list_tree.inOrden();
+      cout << endl;
+      break;
+    case 6:
+      {
+      string ip;
+      cout << "[*] please type an ip: "; cin>>ip;
+      bool found = linked_list_tree.search_ip(ip);
+      if(found == 1) cout << "[*] The IP was found!" << endl;
+      else cout << "[*] IP not found, try another one." << endl;
+      cout << endl;
+      break;
+      }
+    case 7:
+      cout << "[*] Percentage of infected servers: ";
+      cout << linked_list_tree.infected_servers() << "%" << endl;
+      cout << endl;
+      break;
+    case 8:
+      cout << "[*] General view of the network(BST)." << endl;
+      cout << "[*] full?: " << linked_list_tree.is_full() << endl;
+      cout << "[*] leafs: " << linked_list_tree.leaf_count() << endl;
+      cout << "[*] perfect?: " << linked_list_tree.is_perfect() << endl;
+      cout << "[*] degenerate?: " << linked_list_tree.is_degenerate() << endl;
+      cout << endl;
+      break;
+    case 9:
+      cout << "[*] BYE-BYE!!! see ya around" << endl;
+      exit(0);
+      break;
+    default:
+      cout << "[*] Wrong input, please try again." << endl;
+      cout << endl;
+      menu();
+      break;
+  }
+  menu();
+
+}
+
 int main() {
   srand(time(NULL));    // this is for initializing the clock for generating random numbers
   /*
@@ -183,7 +260,7 @@ int main() {
   cout << random_number(15) << endl; 
   */
 
-  
+  /*
   read_file();
   linked_list_tree.inOrden(); 
   cout << endl;
@@ -199,6 +276,16 @@ int main() {
   cout << "infected percentage: " << linked_list_tree.infected_servers() << endl;
 
   cout << "find ip 959.76.209.29:5196 = " << linked_list_tree.search_ip("959.76.209.29:5196") << endl;
+  */
+  cout << "[*] hello there ..." << endl;
+  read_file();
+  cout << "[*] LINKED LIST WAS LOADED SUCCESSFULLY.\n" << endl;
+  cout << "[*] Please keep entering menu options while required. " << endl;
+  cout << endl;
+
+  menu();
+
+  
   /*
   int rando;
   for(int i = 0; i < 600; i++){
