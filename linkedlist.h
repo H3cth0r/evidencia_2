@@ -15,7 +15,7 @@ class NodeLL{
         friend class LinkedList;
     public:
         NodeLL(T data){
-            this->data = data;                                                              //O(1)
+            this->data = data; //O(1)
             next = NULL;                                                                    //O(1)
             prev = NULL;                                                                   //O(1)
         }
@@ -47,9 +47,10 @@ class LinkedList{
   public:
 
     int the_size = 0;
+    bool infected = 0;
 
     LinkedList(){
-      head = last = NULL;                                                                   //O(1)
+      head = last = NULL; //O(1)
     }
 
     /*Method to look for last value of list and set it last*/
@@ -530,7 +531,10 @@ otros métodos*/
     }
     */
     friend ostream& operator << (ostream & salida, const LinkedList<T>& lista){
-      salida << lista.the_size << " ";
+      string opp;
+      if(lista.infected == 0) opp = "ok";
+      else if(lista.infected == 1) opp = "error";
+      salida << lista.the_size << ":" << opp;
       return salida;
     }
     // sobrecarga de operador para comparar todos los valores

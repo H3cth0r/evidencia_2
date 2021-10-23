@@ -32,7 +32,10 @@ BST linked_list_tree = BST<LinkedList<Server>>();
 
 // random number generator
 int random_number(int range){
-  return 1 + (rand() % range);;
+  return 1 + (rand() % range);
+}
+int random_binary(){
+  return (rand() % 2);
 }
 
 // vector full of random numbers function
@@ -141,6 +144,7 @@ void read_file(){
       auxiliar.addFirst(auxiliar_ll.pop());
     }
     auxiliar.the_size = auxiliar.size();
+    auxiliar.infected = random_binary();
     linked_list_tree.insert(auxiliar);
   }
 
@@ -179,16 +183,28 @@ int main() {
   cout << random_number(15) << endl; 
   */
 
+  
   read_file();
   linked_list_tree.inOrden(); 
   cout << endl;
   linked_list_tree.tree_print();
+  
 
+  
   cout << "\n" << endl;
   cout << "full?: " << linked_list_tree.is_full() << endl;
   cout << "leafs: " << linked_list_tree.leaf_count() << endl;
   cout << "perfect?: " << linked_list_tree.is_perfect() << endl;
   cout << "degenerate?=: " << linked_list_tree.is_degenerate() << endl;
+  
+  /*
+  int rando;
+  for(int i = 0; i < 600; i++){
+    rando = random_binary();
+    if(rando == 0) cout << "yes" << endl;
+    else cout << "no" << endl;
+  }
+  */
 }
 
 
