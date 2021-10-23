@@ -13,9 +13,9 @@
 using namespace std;
 
 // home-made libraries
+#include "server.h"
 #include "linkedlist.h"
 #include "bst.h"
-#include "server.h"
 
 /*
     string  month;      // three letter format : sep
@@ -197,6 +197,8 @@ int main() {
   cout << "perfect?: " << linked_list_tree.is_perfect() << endl;
   cout << "degenerate?=: " << linked_list_tree.is_degenerate() << endl;
   cout << "infected percentage: " << linked_list_tree.infected_servers() << endl;
+
+  cout << "find ip 959.76.209.29:5196 = " << linked_list_tree.search_ip("959.76.209.29:5196") << endl;
   /*
   int rando;
   for(int i = 0; i < 600; i++){

@@ -186,6 +186,21 @@ class BST{
       if(node->data.infected == 1) num_infected += 1;
       return(infected_servers(node->left) + 1 + infected_servers(node->right));
     }
+    // recurise search_ip()
+    bool search_ip(Node<T> * & node, string ip){
+      if(node == NULL) return false;
+      int p = node->data.size();
+      Server dat;
+      bool found = false;
+      for(int i = 0; i < p; i++){
+        dat = node->data.get(i);
+        if(dat.getIp() == ip) found = true;
+      }
+      if(found == true){
+      return true;
+      }
+      else return search_ip(node->left, ip) || search_ip(node->right, ip);
+    }
 
   public:
     BST(){
@@ -338,6 +353,8 @@ class BST{
     bool is_degenerate(){
       return is_degenerate(root);
     }
+    // SPECIAL METHODS JUST FOR THE CURRENT PROJECT (delete in case of using
+    // This class any other time).
     /*
     method for getting the percentage of infected servers in bst
     */
@@ -345,5 +362,10 @@ class BST{
       float total = infected_servers(root);
       return (num_infected * 100) / total;
     }
-
+    /*
+    method for looking for some ip in each linked list in the binary tree
+    */
+    bool search_ip(string ip){
+      return search_ip(root, ip);
+    }
 };
