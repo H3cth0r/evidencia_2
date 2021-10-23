@@ -196,7 +196,7 @@ int main() {
   cout << "leafs: " << linked_list_tree.leaf_count() << endl;
   cout << "perfect?: " << linked_list_tree.is_perfect() << endl;
   cout << "degenerate?=: " << linked_list_tree.is_degenerate() << endl;
-  
+  cout << "infected percentage: " << linked_list_tree.infected_servers() << endl;
   /*
   int rando;
   for(int i = 0; i < 600; i++){

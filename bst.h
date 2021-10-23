@@ -179,6 +179,13 @@ class BST{
         else return true;
       }
     }
+    // recursive infected_servers()
+    int num_infected = 0;
+    float infected_servers(Node<T> * & node){
+      if(node == NULL) return 0;                          //O(1)
+      if(node->data.infected == 1) num_infected += 1;
+      return(infected_servers(node->left) + 1 + infected_servers(node->right));
+    }
 
   public:
     BST(){
@@ -330,6 +337,13 @@ class BST{
     */
     bool is_degenerate(){
       return is_degenerate(root);
+    }
+    /*
+    method for getting the percentage of infected servers in bst
+    */
+    float infected_servers(){
+      float total = infected_servers(root);
+      return (num_infected * 100) / total;
     }
 
 };
