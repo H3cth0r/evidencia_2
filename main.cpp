@@ -17,14 +17,6 @@ using namespace std;
 #include "linkedlist.h"
 #include "bst.h"
 
-/*
-    string  month;      // three letter format : sep
-    int     day;        // dd format
-    string  hour;       // "hh:mm:ss" format
-    string  ip;         // "###.###.###.###:#####" format
-    string reason;      // failing reason
-*/
-
 
 // creating global binary search tree to add the LinkedList<server>, depending of size
 BST linked_list_tree = BST<LinkedList<Server>>();
@@ -91,27 +83,6 @@ void split(string line, string & month, string & day, string & hour, string & ip
   reason = reason_str;
 }
 
-/*
-
-// function to create sever and linkedlist<server> and adding it to bst
-void objects_crator(string month, string day, string hour, string ip, string reason){
-  // creating server class
-  int d = stoi(day);
-  Server auxiliar_server = Server(month, d, hour, ip, reason);
-  
-  // creating auxiliar linked list
-  LinkedList auxiliar_linked_list = LinkedList<Server>();
-  auxiliar_linked_list.addFirst(auxiliar_server);
-
-  // adding linked list to binary tree
-  linked_list_tree.insert(auxiliar_linked_list);
-  
-}
-
-*/
-
-
-// to integrate object into read_file, i need to a variable of class linked list to add all the servers
 
 
 // function to read each line of txt
@@ -150,29 +121,6 @@ void read_file(){
 
 }
 
-/*
-string month="jan", int day=1, string hour="00:00:00", string ip="192.169.1.1", string reason="save"
-    string  month;      // three letter format : sep
-    int     day;        // dd format
-    string  hour;       // "hh:mm:ss" format
-    string  ip;         // "###.###.###.###:#####" format
-    string reason;      // failing reason
-*/
-
-
-/*
-TO DO
-  -> apply function of object_creator to read_file function.
-*/
-
-/*
--> create server class for each line.
--> adding server class to linkedList<server> (must have a random size)
--> adding linked list to bst depending of LL size
-*/
-// function to add each line to linkedlist<server>
-
-// function to add each linkedlist to BST
 
 void menu(){
   cout << "[*] MENU. enter an option" << endl;
@@ -253,30 +201,7 @@ void menu(){
 
 int main() {
   srand(time(NULL));    // this is for initializing the clock for generating random numbers
-  /*
-  EXAMPLE OF RANDOM NUMBERS GENERATOR
 
-  for(int i = 0; i < 20; i++)
-  cout << random_number(15) << endl; 
-  */
-
-  /*
-  read_file();
-  linked_list_tree.inOrden(); 
-  cout << endl;
-  linked_list_tree.tree_print();
-  
-
-  
-  cout << "\n" << endl;
-  cout << "full?: " << linked_list_tree.is_full() << endl;
-  cout << "leafs: " << linked_list_tree.leaf_count() << endl;
-  cout << "perfect?: " << linked_list_tree.is_perfect() << endl;
-  cout << "degenerate?=: " << linked_list_tree.is_degenerate() << endl;
-  cout << "infected percentage: " << linked_list_tree.infected_servers() << endl;
-
-  cout << "find ip 959.76.209.29:5196 = " << linked_list_tree.search_ip("959.76.209.29:5196") << endl;
-  */
   cout << "[*] hello there ..." << endl;
   read_file();
   cout << "[*] LINKED LIST WAS LOADED SUCCESSFULLY.\n" << endl;
@@ -285,15 +210,6 @@ int main() {
 
   menu();
 
-  
-  /*
-  int rando;
-  for(int i = 0; i < 600; i++){
-    rando = random_binary();
-    if(rando == 0) cout << "yes" << endl;
-    else cout << "no" << endl;
-  }
-  */
 }
 
 
